@@ -114,7 +114,7 @@ public class CallRecorderService extends Service {
             int audioSource = getAudioSource();
             if (DBG) Log.d(TAG, "Creating media recorder with audio source " + audioSource);
             mMediaRecorder.setAudioSource(audioSource);
-            mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AMR_NB);
+            mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
             mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.DEFAULT);
         } catch (IllegalStateException e) {
             Log.w(TAG, "Error initializing media recorder", e);
@@ -180,7 +180,7 @@ public class CallRecorderService extends Service {
 
     private String generateFilename() {
         String timestamp = DATE_FORMAT.format(new Date());
-        return "callrecorder_" + timestamp + ".amr";
+        return "callrecorder_" + timestamp + ".m4a";
     }
 
     public static boolean isEnabled(Context context) {
